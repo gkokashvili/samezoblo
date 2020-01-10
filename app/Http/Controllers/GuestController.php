@@ -30,10 +30,9 @@ class GuestController extends Controller
      			'name' 		=> $request->streetName,
      			'number' 	=> $request->streetNumber
      		]);
+            $address = Address::where('name', $request->streetName)->where('number', $request->streetNumber)->first();
+            $address_id = $address->id;
      	}
-
-     	$address = Address::where('name', $request->streetName)->where('number', $request->streetNumber)->first();
-     	$address_id = $address->id;
 
      	User::create([
      		'name'   		   	=> $request->name,
