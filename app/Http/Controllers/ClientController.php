@@ -11,8 +11,11 @@ class ClientController extends Controller
 {
     public function index($name)
     {
-    	$name = auth()->user()->name;
-    	return $name;
+    	$user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $address = Address::find($user->getAddress()->id);
+
+    	return view('panel', ['user' => $user, 'address' => $address]);
     }
 
     public function userinfo()
@@ -25,7 +28,9 @@ class ClientController extends Controller
 
      public function addressinfo()
      {
-     	$address = User::find(auth()->user()->id)->getAddress();
+     	$user_id = auth()->user()->id;
+        $user = User::find($user_id);
+        $address = Address::find($user->getAddress()->id);
 
      	return view('addressinfo', ['address' => $address]);
      }

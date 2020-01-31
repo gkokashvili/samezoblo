@@ -1,0 +1,115 @@
+.container {
+  margin: 50px 180px;
+}
+.warning-registration {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.red-warning {
+  display: flex;
+  text-align: center;
+}
+.warning {
+  width: 35px;
+  height: 35px;
+  margin-right: 20px;
+}
+.warning-text {
+  font-family: "BPG Nino Mtavruli", sans-serif;
+  color: #ff0000;
+  font-size: 17px;
+  font-weight: 700;
+  padding-top: 16px;
+}
+.registration {
+  cursor: pointer;
+  width: 138px;
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #243c58;
+  background-color: #ffffff;
+  text-align: left;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 15px;
+  font-family: "BPG Nino Mtavruli", sans-serif;
+}
+
+.authorization-title-form {
+  font-weight: 700;
+  color: #243c58;
+  font-size: 20px;
+  margin: 0 30%;
+}
+.authorization-title {
+  text-align: center;
+}
+.mobile-submit,
+.password-submit {
+  margin-top: 20px;
+}
+.submits {
+  margin-bottom: 10px;
+  color: #243c58;
+  font-weight: 700;
+}
+.submit {
+  width: 400px;
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 10px;
+  border: 1px solid #243c58;
+  background-color: #ffffff;
+}
+input[type="text"] {
+  color: #243c58;
+  font-size: 12px;
+  padding-left: 20px;
+  font-weight: 400;
+}
+#mobile-number {
+  display: flex;
+}
+.enter,
+.enter-code {
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.16);
+  border: 2px solid #243c58;
+  background-color: #243c58;
+  border-radius: 10px;
+  color: #fbfbfb;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+.enter:hover,
+.enter-code:hover {
+  background-color: #fbfbfb;
+  color: #243c58;
+  transition: 0.3s;
+}
+.security-system {
+  display: none;
+  margin: 0 20%;
+  font-weight: 700;
+  color: #243c58;
+  font-size: 20px;
+  margin: 0 30%;
+  margin-top: 200px;
+}
+#security-system-input {
+  background-color: #243c58;
+  color: #fbfbfb;
+}
+#security-system-input::placeholder {
+  color: #fbfbfb;
+}

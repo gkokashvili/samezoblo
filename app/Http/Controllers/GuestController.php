@@ -11,7 +11,7 @@ class GuestController extends Controller
 {
     public function index()
     {
-    	return 'Guest';
+    	return view('guest');
     }
 
     public function create()
@@ -36,8 +36,8 @@ class GuestController extends Controller
 
      	User::create([
      		'name'   		   	=> $request->name,
-     		'email' 		   	=> $request->Email,
-     		'password'         	=> $request->password,
+     		'email' 		   	=> $request->email,
+     		'password'         	=> bcrypt($request->password),
      		'address_id'       	=> $address_id,
      		'personal_id'      	=> $request->personalId,
      		'image_path'       	=> 'asd',

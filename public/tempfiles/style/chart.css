@@ -1,0 +1,276 @@
+.header{
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+    background-color: #318cf7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logos-div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.main-logo{
+width: 60px;
+margin-left: 20px;
+}
+.logo-text{
+    color: white;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+/* ///CHANGE LANGUAGE AND PERSONAL ACOUNT/// */
+.nav{
+display: flex;
+margin-right: 60px;
+}
+.user-div{
+    /* background-color: #263e59; */
+    width: 184px;
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+
+}
+.user{
+    color: white;
+    font-size: 18px;
+
+}
+.language-div{
+    display: flex;
+    align-items: center;
+    width: 95px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.change-language{
+    color: white;
+    font-size: 18px;
+    
+}
+.user-div:hover{
+    background-color: #263e59;
+    border-radius: 15px;
+ 
+}
+.language-div:hover{
+    background-color: #263e59;
+    border-radius: 15px;
+ 
+}
+
+/* ////BACKGROUND IMAGE SECTION/// */
+.back-image{
+    background:  url("../ნინოს ფაილები/7-1.jpg");
+    width: 100%;
+    height: 1000px;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.main-section{
+    height: 1000px;
+    display: flex;
+}
+/* ///SIDE BLOCK/// */
+.side-block{
+    width: 6%;
+    height: 100%;
+    background-color: #318cf7;
+    position: fixed;
+    z-index: 30;
+    padding-top: 300px;
+}
+.icons{
+    width: 50px;
+    margin-bottom: 30px;
+}
+.icons-building{
+  width: 65px;
+  margin-bottom: 30px;
+}
+.icon-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+/* ///GRADIENT LAYER// */
+.gradient{
+    background-image: linear-gradient(to bottom, rgba(221, 226, 253, 0.68), rgba(224, 224, 224, 0.22));
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+/* ////INPUT TEXT/// */
+.search-text-wrapper{
+    width: 60%;
+    margin: 0 auto;
+    text-shadow: 2px 2px #3837378c;
+    font-size: 50px;
+    color: white;
+}
+.text-box1{
+    margin-top: 330px;
+}
+.text-box2{
+    margin-top: 12px;
+}
+
+/* description of the user */
+.main-contant{
+    /* width: 100%;
+    height: 1000px; */
+    width: 100%;
+
+}
+.separate-section{
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 140px;
+}
+.info-wrapper{
+    width: 37%;
+    margin-left: 9.5%;
+}
+.user-info{
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* input */
+
+.form-container{
+    width: 27%;
+    height: 50px;
+    margin-right: 60px;
+}
+.input{
+    border: solid 1px darkgray;
+    height: 50px;
+    border-radius: 15px;
+    width: 100%;
+    padding-left: 20px;
+    font-size: 15px;
+    outline: none;
+}
+
+/* ////chart///// */
+.main-wrapper-text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    margin-top: 30px;
+    color: #263e59;
+}
+
+.main-wrapper{
+    width: 94%;
+    margin-left: 100px;
+    
+}
+.chart-wrapper{
+    width: 92%;
+    margin: 0 auto;
+    height: 814px;
+    border: 1px solid;
+    margin-top:  20px;
+    border-radius: 12px;
+    margin-bottom: 120px;
+}
+.second-wrapper{
+    height: 85%;
+    width: 90%;
+    margin: 0 auto;
+
+    margin-top: 40px;
+    display: flex;
+
+}
+
+
+
+
+/* //////////////////chart///////////////////// */
+/* .thead{
+    background-color: #243C58;  
+    color: white;
+    border: 1px solid darkgrey;
+} */
+.email-icon{
+    height: 60px;
+} 
+.row1{
+    width: 6%;
+}
+.row2{
+    width: 6%;
+}
+.row3{
+    width: 6%;
+}
+.row4{
+    width: 12%;
+}
+.row5{
+    width: 13%;
+}
+.row6{
+    width: 8%;
+}
+.row7{
+    width: 4%;
+}
+.row8{
+    width: 13%;
+}
+.row9{
+    width: 14%;
+}
+.row10{
+    width: 10%;
+}
+.row11{
+    width: 10%;
+}
+
+
+.section1{
+    height: 65px;
+    background-color: #243C58;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+.section{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    border: solid 1px  darkgrey;
+}
+
+.mobile-num{
+    width: 120px;
+}
+.underage{
+    width: 174px;;
+}
+.fullage{
+    margin-left: 11px;
+}
