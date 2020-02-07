@@ -1,41 +1,3 @@
-{{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-<div class="container">
-	<form class="mt-3" method="post" action="{{ route('guest.store') }}">@csrf
-		  <div class="form-group">
-		    <input type="text" name="name" class="form-control" placeholder="Full Name">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="Email" class="form-control" placeholder="E Mail">
-		  </div>
-		  <div class="form-group">
-		    <input type="password" name="password" class="form-control" placeholder="Password">
-		  </div>
-		  <div class="form-group">
-		    <input type="password" name="verifyPassword" class="form-control" placeholder="Repeat Password">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="streetName" class="form-control" placeholder="Street Name">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="streetNumber" class="form-control" placeholder="Street number">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="personalId" class="form-control" placeholder="Personal Identification number">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="adultsInFamily" class="form-control" placeholder="Adults in Family">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="floor" class="form-control" placeholder="Floor Number">
-		  </div>
-		  <div class="form-group">
-		    <input type="text" name="squareMeters" class="form-control" placeholder="Square Meters">
-		  </div>
-		  <button value="submit" type="submit" class="btn btn-primary">Register</button>
-	</form>
-</div> --}}
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,7 +27,7 @@
         </div>
         <button
           class="authorization"
-          onclick="location.href='authorization.html'"
+          onclick="location.href='{{ route('login') }}'"
         >
           ავტორიზაცია
         </button>
@@ -98,8 +60,15 @@
           <input
             class="submit" name="streetName"
             type="text"
+            @if(isset($addressName) && isset($addressNumber))
+              value="{{$addressName}}"
+            @endif 
+            value="{{ old('streetName') }}"
             placeholder="მიუთითეთ ქუჩის სახელი  მაგ: ი.აბაშიძე"
           />
+            @error('streetName')
+              <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="address-submit">
@@ -109,8 +78,15 @@
           <input
             class="submit" name="streetNumber"
             type="text"
+            @if(isset($addressName) && isset($addressNumber))
+              value="{{$addressNumber}}"
+            @endif
+            value="{{ old('streetNumber') }}"
             placeholder="მიუთითეთ ქუჩის ნომერი  მაგ: 16ა"
           />
+            @error('streetNumber')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="map-mark">
@@ -132,8 +108,12 @@
             <input
               class="submit" name="squareMeters"
               type="text"
+              value="{{ old('squareMeters') }}"
               placeholder="ბინის ფართობი კვადრატულუ მეტრი  მაგ: 135"
             />
+              @error('squareMeters')
+                  <div style="color:red">{{ $message }}</div>
+              @enderror
             <h5 class="metric">კვ.მ.</h5>
           </div>
         </div>
@@ -142,16 +122,24 @@
           <input
             class="submit" name="floor"
             type="text"
+            value="{{ old('floor') }}"
             placeholder="სართული მაგ: 2"
           />
+            @error('floor')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="flat-submit submits">
           <label id="flat" for="submit">ბინა</label>
           <input
             class="submit" name="homeNumber"
             type="text"
+            value="{{ old('homeNumber') }}"
             placeholder="მიუთითეთ თქვენი ბინის ნომერი მაგ: 4"
           />
+            @error('homeNumber')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="adult-submit submits">
           <label id="adult" for="submit"
@@ -160,8 +148,12 @@
           <input
             class="submit" name="adultsInFamily"
             type="text"
+            value="{{ old('adultsInFamily') }}"
             placeholder="მიუთითეთ თქვენი ბინის მცხოვრები სრულწლოვანი ადამიანების რაოდენობა"
           />
+            @error('adultsInFamily')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="under-age-submit submits">
           <label id="under-age" for="submit"
@@ -172,7 +164,11 @@
             class="submit" name="childsInFamily"
             type="text"
             placeholder="მიუთითეთ თქვენი ბინის მცხოვრები არასრულწლოვანი ადამიანების რაოდენობა"
+            value="{{ old('childsInFamily') }}"
           />
+            @error('childsInFamily')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="red-text">
           <h6 class="important">
@@ -192,7 +188,11 @@
             class="submit" name="name"
             type="text"
             placeholder="მიუთითეთ თქვენი სახელი"
+            value="{{ old('name') }}"
           />
+            @error('name')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="last-name-submit submits">
           <label id="last-name" for="submit">გვარი *</label>
@@ -200,23 +200,35 @@
             class="submit" name="surname"
             type="text"
             placeholder="მიუთითეთ თქვენი გვარი"
+            value="{{ old('surname') }}"
           />
+            @error('surname')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="email-name-submit submits">
           <label id="email" for="submit">ელ-ფოსტა *</label>
           <input
             class="submit" name="email"
             type="text"
+            value="{{ old('email') }}"
             placeholder="მიუთითეთ თქვენი ელ-ფოსტა"
           />
+            @error('email')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="personalid-name-submit submits">
           <label id="personalid" for="submit">პირადი ნომერი *</label>
           <input
             class="submit" name="personalId"
-            type="text"
+            type="text" 
+            value="{{ old('personalId') }}"
             placeholder="მიუთითეთ პირადი ნომერი"
           />
+            @error('personalId')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="date-submit submits">
           <label id="date" for="submit">დაბადების დღე</label>
@@ -224,7 +236,6 @@
             <input id="day" class="submit" type="text" placeholder="დღე" />
             <input id="month" class="submit" type="text" placeholder="თვე" />
             <input id="year" class="submit" type="text" placeholder="წელი" />
-            <input type="date" style="width: 400px">
           </div>
         </div>
         <div class="password-submit submits">
@@ -234,10 +245,13 @@
         <div class="password-repeat-submit submits">
           <label id="password-repeat" for="submit">პაროლი განმეორებით *</label>
           <input
-            class="submit" name="verifyPassword"
-            type="text"
+            class="submit" name="password_confirmation"
+            type="password"
             placeholder="მიუთითეთ თქვენი პაროლი განმეორებით"
           />
+            @error('password')
+                <div style="color:red">{{ $message }}</div>
+            @enderror
         </div>
         <div class="code-name-submit submits">
           <label id="code-name" for="submit">კოდური სიტყვა *</label>

@@ -14,13 +14,35 @@ class GuestController extends Controller
     	return view('guest');
     }
 
-    public function create()
+    public function create(Request $request)
     {
-    	return view('create');
+        $addressName;
+        $addressNumber;
+        if($request)
+        {
+            $addressName = $request->name;
+            $addressNumber = $request->number;
+        }
+    	return view('create', ['addressName' => $addressName, 'addressNumber' => $addressNumber]);
     }
 
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+        'streetName' => 'required|max:255',
+        'streetNumber' => 'required',
+        'name'  => 'required',
+        'surname' => 'required',
+        'email' => 'required|E-mail|unique:users,email',
+        'password' => 'required|confirmed',
+        'personalId' => 'required|unique:users,personal_id|numeric',
+        'childsInFamily' => 'numeric',
+        'adultsInFamily' => 'numeric',
+        'floor' => 'required',
+        'squareMeters' => 'required|numeric',
+        'homeNumber'  => 'required|numeric'
+        ]);
+
     	$address = Address::where('name', $request->streetName)->where('number', $request->streetNumber)->first();
 
     	if ($address) {
@@ -36,16 +58,26 @@ class GuestController extends Controller
 
      	User::create([
      		'name'   		   	=> $request->name,
+            'surname'           => $request->surname,
      		'email' 		   	=> $request->email,
      		'password'         	=> bcrypt($request->password),
      		'address_id'       	=> $address_id,
      		'personal_id'      	=> $request->personalId,
      		'image_path'       	=> 'asd',
      		'adults_in_family' 	=> $request->adultsInFamily,
+            'childs_in_family'  => $request->childsInFamily,
+            'home_number'       => $request->homeNumber,
      		'floor' 			=> $request->floor,
+            'home_number'       => $request->homeNumber,
      		'square_meters' 	=> $request->squareMeters
      	]);
 
      	return redirect('home');
+    }
+
+    public function search(Request $request)
+    {
+        $addresses = Address::where('name', 'LIKE', "%{$request->addressname}%")->get();
+        return view('search', ['addresses' => $addresses]);
     }
 }

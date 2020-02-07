@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'address_id', 'personal_id', 'image_path', 'adults_in_family', 'floor', 'square_meters'
+        'name', 'email', 'password', 'address_id', 'personal_id', 'image_path', 'adults_in_family', 'floor', 'square_meters', 'surname', 'home_number', 'childs_in_family'
     ];
 
     /**
@@ -40,12 +40,5 @@ class User extends Authenticatable
     public function address()
     {
         return $this->belongsTo('App\Address');
-    }
-
-    public function getAddress()
-    {
-        $address = $this->address;
-        
-        return $address;
     }
 }

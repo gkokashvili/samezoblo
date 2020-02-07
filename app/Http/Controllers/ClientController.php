@@ -9,11 +9,11 @@ use App\Address;
 
 class ClientController extends Controller
 {
-    public function index($name)
+    public function index()
     {
     	$user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $address = Address::find($user->getAddress()->id);
+        $address = Address::find($user->address->id);
 
     	return view('panel', ['user' => $user, 'address' => $address]);
     }
@@ -30,7 +30,7 @@ class ClientController extends Controller
      {
      	$user_id = auth()->user()->id;
         $user = User::find($user_id);
-        $address = Address::find($user->getAddress()->id);
+        $address = Address::find($user->address->id);
 
      	return view('addressinfo', ['address' => $address]);
      }

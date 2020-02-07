@@ -16,9 +16,9 @@ class Addresses extends Migration
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->integer('number');
-            $table->integer('floors');
-            $table->bigInteger('city_id');
+            $table->string('number');
+            $table->integer('floors')->nullable();
+            $table->bigInteger('city_id')->nullable();
         });
     }
 

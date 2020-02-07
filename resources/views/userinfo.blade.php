@@ -12,7 +12,7 @@
 			<li>Name: {{$user->name}}</li>
 			<li>E-Mail: {{$user->email}}</li>
 			<li>Personal Number: {{$user->personal_id}}</li>
-			<li>Address: {{$user->getAddress()->name}} {{$user->getAddress()->number}}</li>
+			<li>Address: {{$user->address->name}} {{$user->address->number}}</li>
 		</ul>
 	
 </body>

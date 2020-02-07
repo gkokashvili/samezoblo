@@ -14,13 +14,13 @@
 
 	<h2>Users Registerd on this address</h2>
 		<ul>
-			@foreach($address->getUsers() as $user)
+			@foreach($address->users as $user)
 					<li>{{$user->name}}</li>
 			@endforeach
 		</ul>
 	<h2>Taxes for this address</h2>
 		<ul>
-			@foreach($address->getTaxes() as $tax)
+			@foreach($address->users as $tax)
 				<li>Name: {{$tax->name}} Amount: {{$tax->amount}}</li>
 			@endforeach
 		</ul>

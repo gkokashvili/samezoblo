@@ -13,12 +13,12 @@
 <body>
       <header class="header">
             <div class="logos-div">
-                  <img src="new icons/main-logo.png" alt="" class="main-logo">
+                  <img src="{{asset('tempfiles/new icons/main-logo.png')}}" alt="" class="main-logo">
                   <h4 class="logo-text">სამეზობლო</h4>
             </div>
             <div class="nav">
                   <div class="user-div">
-                        <h4 class="user">მომხმარებელი</h4>
+                        <a href="{{route('login')}}"><h4 class="user">მომხმარებელი</h4></a>
                   </div>
                   <div class="language-div">
                         <h4 class="change-language">ქართ</h4>
@@ -60,8 +60,8 @@
                               </div>
                         </div>
                         <div class="form-wrapper">
-                              <form class="main-form">
-                                    <input class="input" type="text" placeholder="იპოვე შენი სამეზობლო">
+                              <form class="main-form" method="get" action="{{route('guest.search')}}">
+                                    <input class="input" name="addressname" type="text" placeholder="იპოვე შენი სამეზობლო">
                                     <i class="fa fa-search"></i>
                               </form>
 
