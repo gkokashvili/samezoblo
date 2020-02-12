@@ -19,8 +19,8 @@
 
 
                 <div class="form-container">
-                    <form class="main-form" action="">
-                        <input class="input" type="text" placeholder="ძებნა">
+                    <form class="main-form" method="get" action="{{route('guest.search')}}">
+                        <input class="input" name="addressname" type="text" placeholder="ძებნა">
                     </form>
                 </div>
 
@@ -35,9 +35,9 @@
                 <div class="chart-wrapper">
                     <div class="second-wrapper">
                     	<ul>
-                    	@if(count($addresses) == 0)
+                    	@if(count($addresses) == 0 || $addressesnum == 0)
                     	<h5>შესაბამისი მისამართი ვერ მოიძებნა</h5>
-                    	<a href="">დაარეგისტრირეთ თავად</a>
+                    	<a href="{{route('guest.create')}}">დაარეგისტრირეთ თავად</a>
                     	@else
 							@foreach($addresses as $address)
 								<li><b>მისამართი:</b>

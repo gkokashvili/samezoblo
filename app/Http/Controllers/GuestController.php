@@ -77,7 +77,13 @@ class GuestController extends Controller
 
     public function search(Request $request)
     {
-        $addresses = Address::where('name', 'LIKE', "%{$request->addressname}%")->get();
-        return view('search', ['addresses' => $addresses]);
+        if(is_null($request->addressname)){
+            $addressesnum = 0;
+            $addresses = Address::where('name', 'LIKE', "%{$request->addressname}%")->get();
+        }else{
+            $addresses = Address::where('name', 'LIKE', "%{$request->addressname}%")->get();
+            $addressesnum = 1;
+        }
+        return view('search', ['addresses' => $addresses, 'addressesnum' => $addressesnum]);
     }
 }
