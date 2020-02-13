@@ -15,10 +15,4 @@ class City extends Model
     	return $this->hasMany('App\Address');
     }
 
-    public function getAddresses()
-    {
-        $addresses = $this->addresses;
-
-        return $adresses;
-    }
 }

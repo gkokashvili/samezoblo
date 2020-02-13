@@ -15,10 +15,4 @@ class Tax extends Model
     	return $this->belongsTo('App\Address');
     }
 
-    public function getAddress()
-    {
-    	$address = $this->address;
-
-    	return $address;
-    }
 }

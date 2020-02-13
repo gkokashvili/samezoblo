@@ -24,18 +24,4 @@ class Address extends Model
     {
         return $this->hasMany('App\Tax');
     }
-
-    public function getUsers()
-    {
-        $users = $this->users;
-
-        return $users;
-    }
-
-    public function getTaxes()
-    {
-        $taxes = $this->taxes;
-
-        return $taxes;
-    }
 }
